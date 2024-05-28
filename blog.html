@@ -1,45 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>BLOG</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>hello</h1>
-    <h2>blogington</h2>
-    <h2>hi</h2>
-    <a href="./"><h2>Link to home page</h2></a>
-  </div>
-  <div class="container">
-      <p>If you are sending a message to someone, you expect them, and only them, to see your message, know it's from you (in most cases), and have the message be as you sent it. If you are someone dealing with sensitive information, this is especially important.</p>
+    <header>
+        <div class="container">
+            <h1>My Blog</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-      <p>Now, messages and records and almost all information are stored and sent digitally. And if you deal with this information, you expect for the tools that you use to be secure. As someone who sends texts and emails, I take for granted that my message is being safely delivered.</p>
+    <main>
+        <div class="container">
+            <article>
+                <h2>Blog Post Title 1</h2>
+                <p class="meta">Posted on May 27, 2024 by Author</p>
+                <p>At a high level, Side Channel Attacks exploit security vulnerabilities in a computer’s hardware and physical nature. Bearing the name “Side Channel,” this category covers a very wide range of attacks (essentially everything apart from breaking into a computer or network directly). In this blog, I am going to give an explanation on the theory behind some different types of side channel attacks as well as some mitigation strategies.
 
-      <p>But computers carry inherent traits that leak information. In simpler terms, someone dedicated to stealing this digital information has avenues that people rarely consider. These sorts of attacks are called Side Channel Attacks. When you imagine a hacker, you imagine them using software or viruses to try and break into a computer; side channel attacks, on the other hand, are very hardware oriented, and are very powerful.</p>
+Why is cybersecurity important?
+This topic is only relevant if you care about protecting your information. This includes things like private messages/emails, personal documents and information, and passwords. Since computers and online accounts are so integrated into our lives, making sure that accounts that belong to you stay yours and secrets you want to send stay secret is especially important. A step in protecting all of this includes making sure that computers and computer networks are secure. Software (most of it at least) has been built with this in mind, but it's not perfect.
+Cryptography
+Some definitions: encryptions are scrambles of text into an unknown and different form, and cryptography is the process of this scrambling. Encryption can protect things like your passwords by hiding what they actually are.
 
-      <p>Software attacks can be prevented by robust software and intelligent users (although this is not something that you should expect). However, Side channel attacks use hardware characteristics of a computer to steal information.</p>
+Side Channel Attacks
 
-      <p>To get a better understanding of how some side channel attacks work, first we need to talk about encryption and cryptography. The simplest way to understand it is that a message you send is getting turned into something else. This process is called encryption. Then you send the message, which cannot be interpreted in its “encrypted” state. Someone who receives the message then has a process where they turn the encrypted message back into the original.</p>
+
+
+Software attacks can be prevented by robust software and intelligent users (although this is not something that you should expect). However, Side channel attacks use hardware characteristics of a computer to steal information.
+
+To get a better understanding of how some side channel attacks work, first we need to talk about encryption and cryptography. The simplest way to understand it is that a message you send is getting turned into something else. This process is called encryption. Then you send the message, which cannot be interpreted in its “encrypted” state. Someone who receives the message then has a process where they turn the encrypted message back into the original.
 	
-      <p>Traditional side channel attacks take advantage of the process where a message is encrypted. This is because a computer’s hardware state can vary based on the message. Without getting into too much detail about how a computer works: a computer will unintentionally leak information while doing its tasks. Some good examples of this are power, time, and electromagnetic waves.</p>
+Traditional side channel attacks take advantage of the process where a message is encrypted. This is because a computer’s hardware state can vary based on the message. Without getting into too much detail about how a computer works: a computer will unintentionally leak information while doing its tasks. Some good examples of this are power, time, and electromagnetic waves. 
 
-      <p>The most widely known is a Power Side Channel Attack. The basic idea of this is that a computer needs power to do its tasks. If an attacker can measure the power consumption of a computer, they can use that information to learn secrets.</p>
+	The most widely known is a Power Side Channel Attack. The basic idea of this is that a computer needs power to do its tasks. If an attacker can measure the power consumption of a computer, they can use that information to learn secrets. 
 
-      <p>During the process when a computer is encrypting a message, it uses power. If the power used depends on the message that is being encrypted, then that power consumption leaks information.</p>
+During the process when a computer is encrypting a message, it uses power. If the power used depends on the message that is being encrypted, then that power consumption leaks information.
 
-      <p>A simple power side channel attack uses a <a href="https://www.mdpi.com/2410-387X/4/2/15">graph of the power consumption</a> to directly determine what operations the computer is doing. Encryption algorithms do certain things (imagine additions and multiplication), and an attacker can map each pattern on the graph to an operation being done. This can leak how the encryption algorithm works, and the attacker can then use this information to unencrypt a message.</p>
+A simple power side channel attack uses a graph of the power consumption to directly determine what operations the computer is doing. Encryption algorithms do certain things (imagine additions and multiplication), and an attacker can map each pattern on the graph to an operation being done. This can leak how the encryption algorithm works, and the attacker can then use this information to unencrypt a message.
+https://www.mdpi.com/2410-387X/4/2/15
 
-      <p>Of course, the power consumption will not be a nice graph, especially for modern computers. Especially because modern computers can do many things at the same time, it is not very easy for a simple mapping between a graph and operations to be made. However, it is still possible. More complex methods called Differential and Correlated power analysis can be used. The details of how these work are too much for this blog, but can be found here.</p>
+Of course, the power consumption will not be a nice graph, especially for modern computers. Especially because modern computers can do many things at the same time, it is not very easy for a simple mapping between a graph and operations to be made. However, it is still possible. More complex methods called Differential and Correlated power analysis can be used. The details of how these work are too much for this blog, but can be found here. 
 
-      <p>The basic idea, for those with some statistical knowledge, is to get multiple graphs of the power consumption. From here, the mean can be computer, giving a graph that reduces the noise that comes from other sources.</p>
+The basic idea, for those with some statistical knowledge, is to get multiple graphs of the power consumption. From here, the mean can be computer, giving a graph that reduces the noise that comes from other sources.
 
-      <p>With modern machine learning models,</p>
+With modern machine learning models, 
 
-      <p>Some mitigation strategies for a power side channel attack is to simply make the power consumption not vary. (easier said than done).</p>
-  </div>
+Some mitigation strategies for a power side channel attack is to simply make the power consumption not vary. (easier said than done). 
+</p>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 My Blog. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
